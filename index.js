@@ -16,7 +16,7 @@ const game = 'data:application/x-shockwave-flash;base64,' + fs.readFileSync('./c
 
 // console.log(keys)
 
-server.listen(process.env.port || 3000)
+server.listen(process.env.PORT || 3000)
 
 app.get('/', (req, res) =>
 {
