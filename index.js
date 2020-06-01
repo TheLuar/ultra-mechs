@@ -4,6 +4,7 @@
 const express = require('express')
 const http = require('http')
 const fs = require('fs')
+const path = require('path')
 
 
 const app = express()
@@ -25,7 +26,7 @@ app.get('/', (req, res) =>
 
 app.get('/script', (req, res) =>
 {
-	res.send('./clientjs/client.js', { root: __dirname })
+	res.sendFile(path.join(__dirname + '/clientjs/client.js'))
 })
 
 console.log(keys)
