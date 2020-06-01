@@ -16,9 +16,9 @@ const game = 'data:application/x-shockwave-flash;base64,' + fs.readFileSync('./c
 
 console.log(keys)
 
-server.listen(3000)
+server.listen(process.env.port || 3000 )
 
-app.get('*', (req, res) =>
+app.get('/', (req, res) =>
 {
 	const { k } = req.query
 	if (!keys.hasOwnProperty(k)) return res.status(400).send('👁️')
