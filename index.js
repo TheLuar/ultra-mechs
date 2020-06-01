@@ -4,16 +4,17 @@
 const express = require('express')
 const http = require('http')
 const fs = require('fs')
-const genKeys = require('./utils/genKeys')
 
 
 const app = express()
 const server = http.createServer(app)
 
 
-const keys = genKeys('./whitelist.txt')
+const keys = require('./whitelist.json')
 const game = 'data:application/x-shockwave-flash;base64,' + fs.readFileSync('./client.swf').toString('base64')
 
+
+console.log(keys)
 
 server.listen(3000)
 
