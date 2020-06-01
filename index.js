@@ -14,9 +14,9 @@ const keys = require('./whitelist.json')
 const game = 'data:application/x-shockwave-flash;base64,' + fs.readFileSync('./client.swf').toString('base64')
 
 
-console.log(keys)
+// console.log(keys)
 
-server.listen(process.env.port || 3000 )
+server.listen(process.env.port || 3000)
 
 app.get('/', (req, res) =>
 {
