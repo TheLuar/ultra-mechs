@@ -18,7 +18,7 @@ const keys = require('./whitelist.json')
 
 // app.use(cors())
 
-app.get('/game', (req, res) =>
+app.get('/bmmClient.swf', (req, res) =>
 {
 	// const { k } = req.query
 	// if (!keys.hasOwnProperty(k)) return res.status(400).send('👁️')
