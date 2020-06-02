@@ -38,7 +38,7 @@ app.get('/style', (req, res) =>
 
 app.get('/ip', (req, res) =>
 {
-	res.send(req.ip)
+	res.send(req.ips)
 })
 
 server.listen(process.env.PORT || 3000)
