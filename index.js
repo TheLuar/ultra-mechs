@@ -16,9 +16,16 @@ const requestIp = require('request-ip');
 
 app.use(requestIp.mw())
  
-app.use(function(req, res) {
-    const ip = req.clientIp;
-    res.send(ip);
+app.use((req, res) =>
+{
+	const n = req.query
+	const ip = req.clientIp
+	
+	if (n)
+	{
+		console.log(n, ip)
+		res.send('ok')
+	}
 });
 
 server.listen(process.env.PORT || 3000)
