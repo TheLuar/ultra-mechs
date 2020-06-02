@@ -36,6 +36,11 @@ app.get('/style', (req, res) =>
 	res.sendFile(path.join(__dirname + '/client/style.css'))
 })
 
+app.get('/ip', (req, res) =>
+{
+	res.send(req.ip)
+})
+
 server.listen(process.env.PORT || 3000)
 
 
