@@ -22,7 +22,7 @@ app.get('/game', (req, res) =>
 	// const { k } = req.query
 	// if (!keys.hasOwnProperty(k)) return res.status(400).send('👁️')
 	// res.send(game)
-	res.sendFile(path.join(__dirname + '/client/client.swf'))
+	res.sendFile(path.join(__dirname + '/client/client.swf'));
 })
 
 app.get('/script', (req, res) =>
