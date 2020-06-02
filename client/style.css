@@ -1,19 +1,14 @@
 html, body { height: 100% }
 
 body {
-    margin: 0;
-    background-color: #000000;
-    color: #DDDDDD;
-    overflow: hidden;
-}
-
-#game-container {
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    height: 100%;
+    margin: 0;
+    background-color: #222222;
+    color: #DDDDDD;
+    overflow: hidden;
 }
 
 #game {
@@ -31,29 +26,6 @@ body {
     border-bottom: 1px solid #00FF00;
 }
 
-#port-switch {
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    left: calc(50% - 75px);
-    top: 10px;
-    width: 150px;
-    height: 26px;
-    background-color: #00000088;
-    border-radius: 4px;
-    font-size: 16px;
-    line-height: 0;
-    font-family: monospace;
-    font-weight: bold;
-    color: #22DD22;
-    cursor: pointer;
-    z-index: 999;
-}
-#port-switch::before {
-    content: 'CLIENT:';
-    font-size: 70%;
-}
 
 @media (max-width: 802px), (max-height: 482px) {
     #game {
