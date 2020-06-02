@@ -10,16 +10,11 @@ const src = 'https://ultra-mechs.herokuapp.com/game'
 const game = document.querySelector('#game')
 
 
-const getBlob = async src =>
-{
-	return await fetch(src)
-		.then(response => response.blob())
-		.then(blob => URL.createObjectURL(blob))
-		.catch(console.error);
-}
+fetch(src)
+.then(response => response.blob())
+.then(blob => game.data = URL.createObjectURL(blob))
+.catch(console.error);
 
-
-game.data = getBlob(src)
 
 
 // function httpGet(theUrl)
