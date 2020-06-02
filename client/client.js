@@ -6,12 +6,22 @@ console.log('%cmemento mori', 'background:#000000;color:#DDDDDD')
 
 // general
 
-const URL = 'https://ultra-mechs.herokuapp.com/game'
+const src = 'https://ultra-mechs.herokuapp.com/game'
 
 const game = document.querySelector('#game')
 
-game.data = URL
+const blob = new Blob(httpGet(src))
 
+game.data = URL.createObjectURL(blob)
+
+
+function httpGet(theUrl)
+{
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+    xmlHttp.send( null );
+    return xmlHttp.responseText;
+}
 // const dataURLtoFile = (dataurl, filename) =>
 // {
 // 	const arr = dataurl.split(',')
