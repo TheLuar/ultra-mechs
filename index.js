@@ -17,16 +17,21 @@ const game = 'data:application/x-shockwave-flash;base64,' + fs.readFileSync('./c
 
 server.listen(process.env.PORT || 3000)
 
-app.get('/', (req, res) =>
+app.get('/game', (req, res) =>
 {
-	const { k } = req.query
-	if (!keys.hasOwnProperty(k)) return res.status(400).send('👁️')
+	// const { k } = req.query
+	// if (!keys.hasOwnProperty(k)) return res.status(400).send('👁️')
 	res.send(game)
 })
 
 app.get('/script', (req, res) =>
 {
-	res.sendFile(path.join(__dirname + '/clientjs/client.js'))
+	res.sendFile(path.join(__dirname + '/client/client.js'))
+})
+
+app.get('/style', (req, res) =>
+{
+	res.sendFile(path.join(__dirname + '/client/style.css'))
 })
 
 console.log(keys)
