@@ -1,32 +1,16 @@
-'use strict'
-
-
 const express = require('express')
 const http = require('http')
-const fs = require('fs')
-const path = require('path')
-// const cors = require('cors')
-
-
-
 
 const app = express()
 const server = http.createServer(app)
 const requestIp = require('request-ip');
 
 app.use(requestIp.mw())
- 
 app.use((req, res) =>
 {
-	const n = req.query
-	const ip = req.clientIp
-	
-	if (n)
-	{
-		console.log(n, ip)
-		res.send('ok')
-	}
-});
+	console.log(req.clientIp)
+	res.send('Killin found you ' + req.clientIp)
+})
 
 server.listen(process.env.PORT || 3000)
 
