@@ -18,36 +18,36 @@ const keys = []
 
 const init = () =>
 {
-	const whitelist = process.env.WL ? JSON.parse(process.env.WL) : require('./whitelist.json')
+	// const whitelist = process.env.WL ? JSON.parse(process.env.WL) : require('./whitelist.json')
 
-	keys.push(...whitelist.map(([user, pass]) => sha256(user + pass)))
+	// keys.push(...whitelist.map(([user, pass]) => sha256(user + pass)))
 
 	app.listen(process.env.PORT || 3000)
 }
 
-const isASCII = str => /^[\x00-\x7F]*$/.test(str)
+// const isASCII = str => /^[\x00-\x7F]*$/.test(str)
 
 
 // Routes
 // app.use(express.static('public'))
 // app.use()
 
-app.get('/enter', (req, res) =>
-{
-	if (!req.query.key) return res.send('')
+// app.get('/enter', (req, res) =>
+// {
+// 	if (!req.query.key) return res.send('')
 	
-	const key = Buffer.from(req.query.key, 'base64').toString()
+// 	const key = Buffer.from(req.query.key, 'base64').toString()
 
-	if (!isASCII(key)) return res.send('Do not waste your time.')
+// 	if (!isASCII(key)) return res.send('Do not waste your time.')
 
-	const hash = sha256(key)
+// 	const hash = sha256(key)
 
-	if (!keys.includes(hash)) return res.send('?')
+// 	if (!keys.includes(hash)) return res.send('?')
 	
-	const entry = Buffer.from(key + ',' + new Date().getTime()).toString('base64')
+// 	const entry = Buffer.from(key + ',' + new Date().getTime()).toString('base64')
 
-	res.send('$' + entry)
-})
+// 	res.send('$' + entry)
+// })
 
 app.get('/utils', (req, res) =>
 {
