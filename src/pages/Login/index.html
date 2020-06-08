@@ -1,0 +1,24 @@
+<html lang="en">
+<head>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>Are you lost?</title>
+
+</head>
+<body>
+	
+	<input type="text" name="user" id="user">
+	<input type="password" name="pass" id="pass">
+	<input type="button" value="Submit" id="submit">
+
+	<script>
+		const userInput = document.querySelector('#user')
+		const passInput = document.querySelector('#pass')
+		const subButton = document.querySelector('#submit')
+		subButton.onclick = (e) => fetch('/enter?key=' + btoa(userInput.value + passInput.value)).then(res => window.location.href = res.url)
+	</script>
+	
+</body>
+</html>
