@@ -31,10 +31,12 @@ function tslog (log) {
 	const actionMatch = log.match(/@\[([^\]]+)\]/)
 	if (actionMatch) {
 		const action = actionMatch[1]
-		const jsons = log.match(/###([^]+?)###/g)
-		console.log('%c' + action, 'font-weight:bold;color:#FF8844')
-		console.log(jsons)
-		console.log('%c---', 'font-weight:bold;color:#FF8844')
+		const jsonMatch = log.match(/###([^]+?)###/)
+		if (jsonMatch) {
+			console.log('%c' + action, 'font-weight:bold;color:#FF8844')
+			console.log(JSON.parse(jsonMatch[1]))
+			console.log('%c/' + action, 'font-weight:bold;color:#FF8844')
+		}
 	}
 }
 
