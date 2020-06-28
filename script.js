@@ -10,7 +10,8 @@ const flashvars = {
 	resourceURL: () => '',
 	port: () => bmmdev ? 915 : 9010,
 	disableFB: () => 1,
-	version: () => location.search.includes('nocache') ? Math.random() : 7600
+	version: () => location.search.includes('nocache') ? Math.random() : 7600,
+	portals: () => JSON.stringify(portals),
 }
 
 
