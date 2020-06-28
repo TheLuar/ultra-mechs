@@ -7,6 +7,7 @@ let bmmdev = false
 
 
 const flashvars = {
+	resourceURL: () => '',
 	port: () => bmmdev ? 915 : 9010,
 	disableFB: () => 1,
 	version: () => location.search.includes('nocache') ? Math.random() : 7600
