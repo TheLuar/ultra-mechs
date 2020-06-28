@@ -27,16 +27,17 @@ function setLS (key, data) {
 }
 
 function tslog (log) {
-	console.log(log)
 	const actionMatch = log.match(/@\[([^\]]+)\]/)
 	if (actionMatch) {
 		const action = actionMatch[1]
 		const jsonMatch = log.match(/###([^]+?)###/)
+		console.log('%c' + log.replace(actionMatch[0], action), 'font-weight:bold;color:#FF8844')
 		if (jsonMatch) {
-			console.log('%c' + action, 'font-weight:bold;color:#FF8844')
 			console.log(JSON.parse(jsonMatch[1]))
-			console.log('%c/' + action, 'font-weight:bold;color:#FF8844')
 		}
+	}
+	else {
+		console.log(log)
 	}
 }
 
