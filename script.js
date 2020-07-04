@@ -42,8 +42,10 @@ function tslog (log) {
 
 	if (log.includes('portal ')) {
 		const newPortals = JSON.parse(log.substring(log.indexOf('portal ') + 7))
-		console.log(officialPortals)
+		const before = JSON.stringify(portals)
 		portals = setLS('portals', Object.assign(portals, newPortals))
+		const after = JSON.stringify(portals)
+		if (before !== after) init()
 	}
 }
 
