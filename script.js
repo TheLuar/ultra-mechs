@@ -1,7 +1,7 @@
 'use strict'
 
 
-const portals = getLS('portals', JSON.parse('{"10186":{"location":[50,420],"campaignID":10186,"duration":24024,"id":"10186","startDate":1585040400,"bossID":["BIGBOY"],"themeID":5,"name":"Golden Prison"},"10188":{"location":[135,420],"campaignID":10186,"duration":24024,"id":"10186","startDate":1585040400,"bossID":["BIGBOY"],"themeID":5,"name":"Golden Prison"},"10189":{"id":"10189","location":[220,420],"duration":24024,"bossID":["BIGBOY"],"themeID":5,"startDate":1585040400,"campaignID":10189,"name":"foo"},"10190":{"location":[305,420],"campaignID":10190,"duration":24024,"id":"10190","startDate":1587027600,"bossID":["ROASTER"],"themeID":4,"name":"Golden Age"},"10191":{"id":"10191","location":[390,420],"duration":24024,"bossID":["BIGBOY"],"themeID":5,"startDate":1585040400,"campaignID":10191,"name":"Golden Prison"},"10192":{"location":[475,420],"campaignID":10192,"duration":24024,"id":"10192","startDate":1585040400,"bossID":["BIGBOY"],"themeID":5,"name":"Golden Prison"},"10254":{"location":[560,420],"campaignID":10254,"duration":24024,"id":"10254","startDate":1585558800,"bossID":["SENIOR QUADS"],"themeID":6,"name":"Unreliable Protector"},"10255":{"id":"10254","duration":24024,"startDate":1584435600,"themeID":6,"campaignID":10254,"bossID":["ULTRICORN"],"location":[645,420],"name":"Saint Patrick Special"},"10256":{"location":[730,420],"campaignID":10256,"duration":24024,"id":"10256","startDate":1587632400,"bossID":["UNDERTAKER"],"themeID":5,"name":"Unrepaired Laser Cannon"},"10257":{"location":[815,420],"campaignID":10257,"duration":24024,"id":"10257","startDate":1588669200,"bossID":["THE HAT GUARDIAN"],"themeID":2,"name":"Cinco de Mayo"},"10258":{"location":[900,420],"campaignID":10258,"duration":24024,"id":"10258","startDate":1585040400,"bossID":["BIGBOY"],"themeID":5,"name":"Golden Prison"}}'))
+let portals = getLS('portals', JSON.parse('{"10186":{"location":[50,420],"campaignID":10186,"duration":24024,"id":"10186","startDate":1585040400,"bossID":["BIGBOY"],"themeID":5,"name":"Golden Prison"},"10188":{"location":[135,420],"campaignID":10186,"duration":24024,"id":"10186","startDate":1585040400,"bossID":["BIGBOY"],"themeID":5,"name":"Golden Prison"},"10189":{"id":"10189","location":[220,420],"duration":24024,"bossID":["BIGBOY"],"themeID":5,"startDate":1585040400,"campaignID":10189,"name":"foo"},"10190":{"location":[305,420],"campaignID":10190,"duration":24024,"id":"10190","startDate":1587027600,"bossID":["ROASTER"],"themeID":4,"name":"Golden Age"},"10191":{"id":"10191","location":[390,420],"duration":24024,"bossID":["BIGBOY"],"themeID":5,"startDate":1585040400,"campaignID":10191,"name":"Golden Prison"},"10192":{"location":[475,420],"campaignID":10192,"duration":24024,"id":"10192","startDate":1585040400,"bossID":["BIGBOY"],"themeID":5,"name":"Golden Prison"},"10254":{"location":[560,420],"campaignID":10254,"duration":24024,"id":"10254","startDate":1585558800,"bossID":["SENIOR QUADS"],"themeID":6,"name":"Unreliable Protector"},"10255":{"id":"10254","duration":24024,"startDate":1584435600,"themeID":6,"campaignID":10254,"bossID":["ULTRICORN"],"location":[645,420],"name":"Saint Patrick Special"},"10256":{"location":[730,420],"campaignID":10256,"duration":24024,"id":"10256","startDate":1587632400,"bossID":["UNDERTAKER"],"themeID":5,"name":"Unrepaired Laser Cannon"},"10257":{"location":[815,420],"campaignID":10257,"duration":24024,"id":"10257","startDate":1588669200,"bossID":["THE HAT GUARDIAN"],"themeID":2,"name":"Cinco de Mayo"},"10258":{"location":[900,420],"campaignID":10258,"duration":24024,"id":"10258","startDate":1585040400,"bossID":["BIGBOY"],"themeID":5,"name":"Golden Prison"}}'))
 
 let bmmdev = false
 
@@ -38,6 +38,12 @@ function tslog (log) {
 	}
 	else {
 		console.log(log)
+	}
+
+	if (log.includes('portal ')) {
+		const newPortals = JSON.parse(log.substring(log.indexOf('portal ') + 7))
+		console.log(officialPortals)
+		portals = setLS('portals', Object.assign(portals, newPortals))
 	}
 }
 
