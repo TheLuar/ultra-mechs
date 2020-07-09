@@ -70,7 +70,9 @@ function init () {
 		const portal = portals[portalIDs[i]]
 		portal.location = [50 + 85 * i, 420]
 		portal.duration = 24024
-		portal.name = portal.id + ' - ' + portal.name
+		if (!portal.name.includes(portal.id)) {
+			portal.name = portal.id + ' ' + portal.name
+		}
 	}
 	console.log(fv.replace(/&/g, '\n').replace(/=/g, ' = '))
 	document.querySelector('#flash-vars').value = fv
