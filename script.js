@@ -64,8 +64,6 @@ function switchPort () {
 }
 
 function init () {
-	const portalIDs = Object.keys(portals)
-	const fv = genFlashVars()
 	for (let i = 0; i < portalIDs.length; i++) {
 		const portal = portals[portalIDs[i]]
 		portal.location = [50 + 85 * i, 420]
@@ -74,6 +72,8 @@ function init () {
 			portal.name = portal.id + ' ' + portal.name
 		}
 	}
+	const portalIDs = Object.keys(portals)
+	const fv = genFlashVars()
 	console.log(fv.replace(/&/g, '\n').replace(/=/g, ' = '))
 	document.querySelector('#flash-vars').value = fv
 	document.querySelector('#game').data = 'bmmLoader.swf'
